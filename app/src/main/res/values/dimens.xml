@@ -4,6 +4,14 @@
     <!--  Main  -->
     <dimen name="main_paddings">16dp</dimen>
 
+    <dimen name="shape_radius">18dp</dimen>
+    <dimen name="button_height">44dp</dimen>
+
+    <dimen name="spacer_size_xs">5dp</dimen>
+    <dimen name="spacer_size_s">15dp</dimen>
+    <dimen name="spacer_size_m">25dp</dimen>
+    <dimen name="spacer_size_xl">50dp</dimen>
+
     <!--  Navigation Bar  -->
     <dimen name="navigation_bar_item_width">100dp</dimen>
     <dimen name="navigation_bar_shape_width">56dp</dimen>

@@ -97,7 +97,6 @@ val ContactTextType = TextStyle(
 )
 
 val ButtonTextType = TextStyle(
-    color = ButtonText,
     fontWeight = FontWeight.W400,
     fontFamily = FontFamily(Font(R.font.stolzl_regular)),
     fontSize = 14.sp,
