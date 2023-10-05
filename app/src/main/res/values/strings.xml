@@ -1,3 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">LogisticsAssistantApp</string>
+    <string name="app_name" translatable="false">LogisticsAssistantApp</string>
+
+    <!--  Navigation Bar  -->
+    <string name="navigation_bar_tasks">Tasks</string>
+    <string name="navigation_bar_schedule">Schedule</string>
+    <string name="navigation_bar_chat">Chat</string>
+    <string name="navigation_bar_profile">Profile</string>
 </resources>

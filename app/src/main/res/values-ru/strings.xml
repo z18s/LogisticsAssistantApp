@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  Navigation Bar  -->
+    <string name="navigation_bar_tasks">Задания</string>
+    <string name="navigation_bar_schedule">График</string>
+    <string name="navigation_bar_chat">Чат</string>
+    <string name="navigation_bar_profile">Профиль</string>
+</resources>
