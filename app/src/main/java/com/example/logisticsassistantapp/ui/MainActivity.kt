@@ -29,6 +29,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
@@ -41,7 +42,10 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.logisticsassistantapp.R
+import com.example.logisticsassistantapp.application.LogisticsAssistantApp
+import com.example.logisticsassistantapp.mvvm.viewmodel.MainViewModel
 import com.example.logisticsassistantapp.ui.navigation.ChatScreen
 import com.example.logisticsassistantapp.ui.navigation.ProfileScreen
 import com.example.logisticsassistantapp.ui.navigation.ScheduleScreen
@@ -58,6 +62,7 @@ import com.example.logisticsassistantapp.ui.theme.TextLight
 class MainActivity : ComponentActivity() {
 
     private lateinit var screenState: MutableState<Screens>
+    private lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,6 +70,8 @@ class MainActivity : ComponentActivity() {
         installSplashScreen()
 
         setContent {
+            viewModel = viewModel(factory = LogisticsAssistantApp.instance().viewModelFactory)
+
             LogisticsAssistantAppTheme {
                 val currentScreen = Screens.Start
                 screenState = rememberSaveable(currentScreen) { mutableStateOf(currentScreen) }
@@ -85,8 +92,12 @@ class MainActivity : ComponentActivity() {
                             color = MaterialTheme.colorScheme.background,
                             content = { MainScreen() })
                     },
-                    bottomBar = { NavigationBar() }
+                    bottomBar = { if (screenState.value != Screens.Start) NavigationBar() }
                 )
+
+                if (viewModel.loginCodeChecked.observeAsState().value == true) {
+                    screenState.value = Screens.Tasks
+                }
             }
         }
     }
@@ -94,7 +105,7 @@ class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     fun TopBar() {
-        val tabText = stringResource(R.string.app_name)
+        val tabText = viewModel.topBarTabText.observeAsState().value ?: ""
         TopAppBar(
             title = { Text(text = tabText, style = AppBarType) },
             navigationIcon = { Icons.Filled.Build }

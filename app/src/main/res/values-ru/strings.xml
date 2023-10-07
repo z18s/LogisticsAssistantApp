@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--  Main  -->
+    <string name="ic_back_description">Назад</string>
+
     <!--  Navigation Bar  -->
     <string name="navigation_bar_tasks">Задания</string>
     <string name="navigation_bar_schedule">График</string>
     <string name="navigation_bar_chat">Чат</string>
     <string name="navigation_bar_profile">Профиль</string>
+
+    <!--  Start Screen  -->
+    <string name="start_screen_logo_text">Помощник логиста</string>
+    <string name="start_screen_login_phone_header">Добро пожаловать</string>
+    <string name="start_screen_login_phone_text">Введите свой номер для авторизации</string>
+    <string name="start_screen_login_code_header">Введите код из смс</string>
+    <string name="start_screen_login_code_text">Код был отправлен на номер телефона\n</string>
+    <string name="start_screen_login_code_error">Неверный код</string>
+    <string name="start_screen_login_code_support_text">Выслать повторный код</string>
+    <string name="start_screen_login_button">Продолжить</string>
 </resources>

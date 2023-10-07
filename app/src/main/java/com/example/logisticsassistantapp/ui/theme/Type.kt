@@ -45,7 +45,7 @@ val NavigationBarType = TextStyle(
     letterSpacing = 0.5.sp
 )
 
-val WelcomeTextType = TextStyle(
+val StartScreenHeaderTextType = TextStyle(
     color = TextDark,
     fontWeight = FontWeight.W400,
     fontFamily = FontFamily(Font(R.font.stolzl_regular)),
